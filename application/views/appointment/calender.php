@@ -184,7 +184,8 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title" id="myModalLabel">새 일정</h4>
                 </div>
-                <form method="post" class="calendar_add_form" action="/index.php/dataFunction/insBooking" onsubmit="insFormChk(this); return false;" enctype="multipart/form-data">
+                <form method="post" class="calendar_add_form" action="/index.php/dataFunction/insBooking" onsubmit="insFormChk(this);
+                        return false;" enctype="multipart/form-data">
                     <input type="hidden" name="branch_idx" value="<?= $this->session->userdata('BRANCH_IDX') ?>">
                     <div class="modal-body" style="overflow: hidden;">
                         <div id="testmodal" style="padding: 5px 20px;">	
@@ -529,8 +530,8 @@
                         <button type="button" class="btn btn-danger absent_btn">결석</button>
                         <button type="button" class="btn btn-danger dis_absent_btn">결석취소</button>
                         <button type="button" class="btn btn-primary delete_btn">삭제</button>
-                        <button type="submit" class="btn btn-success antosubmit2" style="margin-left: 0;">바로 예약</button>
-                        <button type="submit" class="btn btn-warning copysubmit2" style="margin-left: 0;">계속 예약</button>
+                        <!--<button type="submit" class="btn btn-success antosubmit2" style="margin-left: 0;">바로 예약</button>
+                                                <button type="submit" class="btn btn-warning copysubmit2" style="margin-left: 0;">계속 예약</button>-->
                         <button type="submit" class="btn btn-default copysubmit3" style="margin-left: 0;">수정</button>
                     </div>
                 </form>
@@ -1647,7 +1648,7 @@
                                                     });
 
                                                     //결석 부분
-                                                    $(".absent_btn").unbind().bind("click",function () {
+                                                    $(".absent_btn").unbind().bind("click", function () {
                                                         if (confirm("결석처리 하시겠습니까?")) {
                                                             var data = {idx: $("#modify_booking_idx").val()};
                                                             $.ajax({
