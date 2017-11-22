@@ -1,0 +1,28 @@
+.dp_ib {
+	display: inline-block !important;
+}
+.mb5 {margin-bottom: 5px !important;}
+.mb15 {margin-bottom: 15px !important;}
+.sort_none span {
+	border: none !important;
+}
+#imgView {
+	max-width: 100%;
+}
+.minus { float: right; }
+.btn_position {
+	position: absolute;
+	bottom: 15px;
+	right: 75px;
+}
+.cursor {
+	cursor: pointer;
+}
+.title_select {
+	padding: 3px;
+	font-size: 18px;
+	border: none;
+}
+.ui-datepicker {
+	z-index: 9999 !important;
+}

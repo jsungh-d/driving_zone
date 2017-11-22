@@ -1,0 +1,44 @@
+.fc-time-grid .fc-slats td {
+    height: 35px;
+    border-bottom: 0;
+}
+
+.fc-agendaWeek-view {
+    overflow-x: scroll;
+}
+
+.fc-agendaWeek-view > table {
+    width: 200%;
+}
+
+@media screen and (max-width: 991px){
+    .fc-agendaWeek-view > table {
+        min-width: 2000px;
+    }
+}
+
+.device_table {
+    border-top: 1px solid #ddd !important;
+}
+.fc-day-header {
+    min-width: 300px;
+}
+.fc-ltr .fc-agendaWeek-view  .fc-time-grid .fc-event-container,
+.fc-ltr .fc-agendaDay-view  .fc-time-grid .fc-event-container {
+    margin: 0 2px 0 0 !important;
+}
+
+.fc-agendaDay-view .fc-content {
+	font-size:  12px !important;
+	padding: 8px;
+}
+.fc-agendaWeek-view .fc-content {
+            font-size:  10px !important;
+	text-align: center;	
+}
+
+.fc-event .fc-bg {
+    background: #3f5bd6;
+    opacity: 0;
+}
+
