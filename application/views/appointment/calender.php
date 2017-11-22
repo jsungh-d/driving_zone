@@ -529,7 +529,7 @@
                         </a>
                         <button type="button" class="btn btn-danger absent_btn">결석</button>
                         <button type="button" class="btn btn-danger dis_absent_btn">결석취소</button>
-                        <button type="button" class="btn btn-primary delete_btn">삭제</button>
+                        <button type="button" class="btn btn-primary delete_btn" style="margin-left: 0;">삭제</button>
                         <!--<button type="submit" class="btn btn-success antosubmit2" style="margin-left: 0;">바로 예약</button>
                                                 <button type="submit" class="btn btn-warning copysubmit2" style="margin-left: 0;">계속 예약</button>-->
                         <button type="submit" class="btn btn-default copysubmit3" style="margin-left: 0;">수정</button>
