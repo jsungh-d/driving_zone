@@ -108,21 +108,21 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                <p class="">상품</p>
-                                </th>
-                                <th>
-                                <p class="">비율</p>
-                                </th>
-                                </tr>
+                                            <p class="">상품</p>
+                                        </th>
+                                        <th>
+                                            <p class="">비율</p>
+                                        </th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($pay_percent as $row) { ?>
-                                        <tr>
-                                            <td>
-                                                <p><?= $row['NAME'] ?></p>
-                                            </td>
-                                            <td><?= $row['PAY_CNT'] ?>%</td>
-                                        </tr>
+                                    <tr>
+                                        <td>
+                                            <p><?= $row['NAME'] ?></p>
+                                        </td>
+                                        <td><?= $row['PAY_CNT'] ?>%</td>
+                                    </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
@@ -155,22 +155,22 @@
                 <div class="x_content">
                     <h6 style="margin-bottom: 15px;">상품유형별 합계 입니다.</h6>
                     <?php foreach ($goods_lists as $row) { ?>
-                        <div class="widget_summary">
-                            <div class="w_left w_25">
-                                <span><?= $row['GOODS_TYPE'] ?></span>
-                            </div>
-                            <div class="w_center w_55">
-                                <div class="progress">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $row['SUM_GOODS_PERCENT'] ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $row['SUM_GOODS_PERCENT'] ?>%;">
-                                        <span class="sr-only"><?= $row['SUM_GOODS_PERCENT'] ?>%</span>
-                                    </div>
+                    <div class="widget_summary">
+                        <div class="w_left w_25">
+                            <span><?= $row['GOODS_TYPE'] ?></span>
+                        </div>
+                        <div class="w_center w_55">
+                            <div class="progress">
+                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $row['SUM_GOODS_PERCENT'] ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $row['SUM_GOODS_PERCENT'] ?>%;">
+                                    <span class="sr-only"><?= $row['SUM_GOODS_PERCENT'] ?>%</span>
                                 </div>
                             </div>
-                            <div class="w_right w_20">
-                                <span><?= $row['SUM_GOODS'] ?>명</span>
-                            </div>
-                            <div class="clearfix"></div>
                         </div>
+                        <div class="w_right w_20">
+                            <span><?= $row['SUM_GOODS'] ?>명</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
                     <?php } ?>
                 </div>
             </div>
@@ -204,56 +204,58 @@
                 if ($('#lineChart').length) {
 
                     var ctx = document.getElementById("lineChart");
-                    ctx.height = 450;
+                    ctx.height =450;
                     var lineChart = new Chart(ctx, {
                         type: 'line',
                         data: {
                             labels: title,
                             datasets: [{
-                                    label: "매출",
-                                    backgroundColor: "rgba(38, 185, 154, 0.31)",
-                                    borderColor: "rgba(38, 185, 154, 0.7)",
-                                    pointBorderColor: "rgba(38, 185, 154, 0.7)",
-                                    pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
-                                    pointHoverBackgroundColor: "#fff",
-                                    pointHoverBorderColor: "rgba(220,220,220,1)",
-                                    pointBorderWidth: 1,
-                                    data: price
-                                }
+                                label: "매출",
+                                backgroundColor: "rgba(38, 185, 154, 0.31)",
+                                borderColor: "rgba(38, 185, 154, 0.7)",
+                                pointBorderColor: "rgba(38, 185, 154, 0.7)",
+                                pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+                                pointHoverBackgroundColor: "#fff",
+                                pointHoverBorderColor: "rgba(220,220,220,1)",
+                                pointBorderWidth: 1,
+                                data: price
+                            }
                             ]
                         },
                         options: {
                             maintainAspectRatio: false,
                             tooltips: {
-                                callbacks: {
-                                    label: function (tooltipItem, data) {
-                                        var value = data.datasets[0].data[tooltipItem.index];
-                                        if (parseInt(value) >= 1000) {
-                                            return  value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
-                                        } else {
-                                            return  value.toFixed(1) + "원";
-                                        }
-                                    }
-                                }
-                            },
-                            scales: {
-                                xAxes: [{
-                                    }],
-                                yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true,
-                                            callback: function (value, index, values) {
-                                                if (parseInt(value) >= 1000) {
-                                                    return  value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
-                                                } else {
-                                                    return  value.toFixed(1) + "원";
-                                                }
-                                            }
-                                        }
-                                    }]
-                            }
-                        }
-                    });
+                              callbacks: {
+                                label: function(tooltipItem, data) {
+                                    var value = data.datasets[0].data[tooltipItem.index];
+                                    if(parseInt(value) >= 1000){
+                                     return  value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+                                 } else {
+                                     return  value.toFixed(1) + "원";
+                                 }
+                             }
+                         }
+                     },               
+                     scales: {
+                     xAxes: [{
+    
+        }],
+
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true,
+                                callback: function(value, index, values) {
+                                    if(parseInt(value) >= 1000){
+                                     return  value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+                                 } else {
+                                     return  value.toFixed(1) + "원";
+                                 }
+                             }                            
+                         }
+                     }]
+                 }
+             }
+         });
 
                 }
 
@@ -270,8 +272,8 @@
                     var data = {
                         labels: pay_title,
                         datasets: [{
-                                data: pay_price,
-                                backgroundColor: [
+                            data: pay_price,
+                             backgroundColor: [
                                     "#0d2259",
                                     "#58d6ff",
                                     "#dd9eea",
@@ -294,7 +296,7 @@
                                     "#81bb52"
                                 ]
 
-                            }]
+                        }]
                     };
 
                     var canvasDoughnut = new Chart(ctx, {
@@ -312,85 +314,85 @@
             }
         });
 
-        var ctx = document.getElementById("lineChart");
-        var lineChart = new Chart(ctx);
+var ctx = document.getElementById("lineChart");
+var lineChart = new Chart(ctx);
 
-        $("#price_date").change(function () {
+$("#price_date").change(function () {
 
-            var data = {date: $(this).val()};
+    var data = {date: $(this).val()};
 
-            $.ajax({
-                dataType: 'json',
-                url: '/index.php/dataFunction/dashboardChart',
-                data: data,
-                type: 'POST',
-                success: function (data, status, xhr) {
+    $.ajax({
+        dataType: 'json',
+        url: '/index.php/dataFunction/dashboardChart',
+        data: data,
+        type: 'POST',
+        success: function (data, status, xhr) {
 
-                    var title = [];
-                    var price = [];
-                    for (var i = 0; i < data.title.length; i++) {
-                        title.push(data.title[i].title);
-                        price.push(data.price[i].price);
-                    }
+            var title = [];
+            var price = [];
+            for (var i = 0; i < data.title.length; i++) {
+                title.push(data.title[i].title);
+                price.push(data.price[i].price);
+            }
 
-                    if ($('#lineChart').length) {
+            if ($('#lineChart').length) {
 
-                        var ctx = document.getElementById("lineChart");
-                        var lineChart = new Chart(ctx, {
-                            type: 'line',
-                            data: {
-                                labels: title,
-                                datasets: [{
-                                        label: "매출",
-                                        backgroundColor: "rgba(38, 185, 154, 0.31)",
-                                        borderColor: "rgba(38, 185, 154, 0.7)",
-                                        pointBorderColor: "rgba(38, 185, 154, 0.7)",
-                                        pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
-                                        pointHoverBackgroundColor: "#fff",
-                                        pointHoverBorderColor: "rgba(220,220,220,1)",
-                                        pointBorderWidth: 1,
-                                        data: price
-                                    }
-                                ]
-                            },
-                            options: {
-                                maintainAspectRatio: false,
-                                tooltips: {
-                                    callbacks: {
-                                        label: function (tooltipItem, data) {
-                                            var value = data.datasets[0].data[tooltipItem.index];
-                                            if (parseInt(value) >= 1000) {
-                                                return  value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
-                                            } else {
-                                                return  value.toFixed(1) + "원";
-                                            }
-                                        }
-                                    }
-                                },
-                                scales: {
-                                    yAxes: [{
-                                            ticks: {
-                                                beginAtZero: true,
-                                                callback: function (value, index, values) {
-                                                    if (parseInt(value) >= 1000) {
-                                                        return  value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
-                                                    } else {
-                                                        return  value.toFixed(1) + "원";
-                                                    }
-                                                }
-                                            }
-                                        }]
-                                }
+                var ctx = document.getElementById("lineChart");
+                var lineChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: title,
+                        datasets: [{
+                            label: "매출",
+                            backgroundColor: "rgba(38, 185, 154, 0.31)",
+                            borderColor: "rgba(38, 185, 154, 0.7)",
+                            pointBorderColor: "rgba(38, 185, 154, 0.7)",
+                            pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+                            pointHoverBackgroundColor: "#fff",
+                            pointHoverBorderColor: "rgba(220,220,220,1)",
+                            pointBorderWidth: 1,
+                            data: price
+                        }
+                        ]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        tooltips: {
+                          callbacks: {
+                            label: function(tooltipItem, data) {
+                                var value = data.datasets[0].data[tooltipItem.index];
+                                if(parseInt(value) >= 1000){
+                                   return  value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+                               } else {
+                                   return  value.toFixed(1) + "원";
+                               }
+                           }
+                       }
+                   },               
+                   scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            callback: function(value, index, values) {
+                                if(parseInt(value) >= 1000){
+                                   return  value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+                               } else {
+                                   return  value.toFixed(1) + "원";
+                               }
+                           }                            
+                       }
+                   }]
+               }
 
-                            }
-                        });
+           }
+       });
 
-                        lineChart.update();
+                lineChart.update();
 
-                    }
-                }
-            });
-        });
-
+            }
+        }
     });
+});
+
+});
 </script>

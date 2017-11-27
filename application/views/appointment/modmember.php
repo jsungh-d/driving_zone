@@ -137,7 +137,9 @@
                         if($subRow['PAY_YN']=='Y') { 
                             $pay_yn = 'checked';
                         }
-                        echo '<span class="member_list" style="line-height: 28px;">' . $subRow['GOODS_NAME'] . $subRow['LICENSE_TYPE_TEXT'] . '/' . $subRow['PAYMENT_NAME'] . '/' . $subRow['EVENT_NAME'] . '</span>' . '<label style="margin:5px 3px;" class="payment_label">' . '<input type="checkbox" name="" value="Y"' . $pay_yn . '>' . '<span>미납 여부</span>' . '</label>' . '<span>' . '(' . number_format($subRow['TOT_PRICE']) . '원)' . '</span>'; ?>
+                        
+                        $time_stamp = substr($subRow['TIMESTAMP'],0,10);
+                        echo '<span class="member_list" style="line-height: 28px;">' . $subRow['GOODS_NAME'] . $subRow['LICENSE_TYPE_TEXT'] . '/' . $subRow['PAYMENT_NAME'] . '/' . $subRow['EVENT_NAME'] . '/' . $time_stamp . '</span>' . '<label style="margin:5px 3px;" class="payment_label">' . '<input type="checkbox" name="" value="Y"' . $pay_yn . '>' . '<span>미납 여부</span>' . '</label>' . '<span>' . '(' . number_format($subRow['TOT_PRICE']) . '원)' . '</span>'; ?>
                         <button class="btn btn-default minus goods_minus goods_del_btn" type="button" style="vertical-align: top;" value="<?= $subRow['MEMBER_GOODS_IDX'] ?>">-</button>
                         <br>
                     </div>

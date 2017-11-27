@@ -167,14 +167,14 @@
                                                         </div>-->
                                                         <div class="col-lg-6 col-xs-12">
                                                             <div class="x_panel">
-                                                                <div class="x_title">
+                                                                <div class="x_title" style="padding-bottom: 2px">
                                                                     <h2>기간별 상품 유형</h2>
                                                                     <ul class="nav navbar-right panel_toolbox" style="width: 220px;">
                                                                         <div class="input-group" style="margin:0;">
-                                                                            <div class="input-group-addon">
+                                                                            <div class="input-group-addon" style="">
                                                                                 <span class="fa fa-calendar"></span>
                                                                             </div>
-                                                                            <input type="text" class="form-control date_rangepicker" id="goods_date_term" value="" placeholder="날짜지정">
+                                                                            <input type="text" class="form-control date_rangepicker" id="goods_date_term" value="" placeholder="날짜지정" >
                                                                         </div>
                                                                     </ul>
                                                                     <div class="clearfix"></div>
@@ -386,64 +386,6 @@
                                                         <div class="col-lg-6 col-xs-12">
                                                             <div class="x_panel tile">
                                                                 <div class="x_title">
-                                                                    <h2>시험장소</h2>
-                                                                    <ul class="nav navbar-right panel_toolbox">
-                                                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                                        </li>
-                                                                        <li class="dropdown">
-                                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                                                            <ul class="dropdown-menu" role="menu">
-                                                                                <li><a href="#">Settings 1</a>
-                                                                                </li>
-                                                                                <li><a href="#">Settings 2</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </li>
-                                                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <div class="clearfix"></div>
-                                                                </div>
-                                                                <div class="x_content">
-                                                                    <div class="row">
-                                                                        <div class="col-sm-8 col-xs-12">
-                                                                            <div class="place_wrapper" style="height:300px;">
-                                                                                <canvas id="place"></canvas>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-4 col-xs-12">
-                                                                            <table class="" style="width:100%;  margin-top: 15px;">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th>
-                                                                                            <p class="">시험장소</p>
-                                                                                        </th>
-                                                                                        <th>
-                                                                                            <p class="">비율</p>
-                                                                                        </th>
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <tbody>
-                                                                                    <?php foreach ($test_site_percent as $row) { ?>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <p><?= $row['NAME'] ?></p>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <p><?= $row['TEST_SITE_CNT'] ?>%</p>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    <?php } ?>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6 col-xs-12">
-                                                            <div class="x_panel tile">
-                                                                <div class="x_title">
                                                                     <h2>연습방법</h2>
                                                                     <ul class="nav navbar-right panel_toolbox">
                                                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -499,7 +441,64 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
+                                                        <div class="col-lg-6 col-xs-12">
+                                                            <div class="x_panel tile">
+                                                                <div class="x_title">
+                                                                    <h2>시험장소</h2>
+                                                                    <ul class="nav navbar-right panel_toolbox">
+                                                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                                        </li>
+                                                                        <li class="dropdown">
+                                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                                            <ul class="dropdown-menu" role="menu">
+                                                                                <li><a href="#">Settings 1</a>
+                                                                                </li>
+                                                                                <li><a href="#">Settings 2</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <div class="clearfix"></div>
+                                                                </div>
+                                                                <div class="x_content">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-8 col-xs-12">
+                                                                            <div class="place_wrapper" style="height:300px;">
+                                                                                <canvas id="place"></canvas>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-4 col-xs-12">
+                                                                            <table class="" style="width:100%;  margin-top: 15px;">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>
+                                                                                            <p class="">시험장소</p>
+                                                                                        </th>
+                                                                                        <th>
+                                                                                            <p class="">비율</p>
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <?php foreach ($test_site_percent as $row) { ?>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <p><?= $row['NAME'] ?></p>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <p><?= $row['TEST_SITE_CNT'] ?>%</p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <?php } ?>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="col-lg-6 col-xs-12">
                                                             <div class="x_panel tile">
                                                                 <div class="x_title">
@@ -565,6 +564,71 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="col-lg-6 col-xs-12">
+                                                            <div class="x_panel tile">
+                                                                <div class="x_title">
+                                                                    <h2>상담 후 계약률</h2>
+                                                                    <ul class="nav navbar-right panel_toolbox">
+                                                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                                        </li>
+                                                                        <li class="dropdown">
+                                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                                            <ul class="dropdown-menu" role="menu">
+                                                                                <li><a href="#">Settings 1</a>
+                                                                                </li>
+                                                                                <li><a href="#">Settings 2</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <div class="clearfix"></div>
+                                                                </div>
+                                                                <div class="x_content">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-8 col-xs-12">
+                                                                            <div class="proceeding_wrapper" style="height:300px;">
+                                                                                <canvas id="proceeding"></canvas>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-4 col-xs-12">
+                                                                            <table class="" style="width:100%;  margin-top: 15px;">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>
+                                                                                            <p class="">계약여부</p>
+                                                                                        </th>
+                                                                                        <th>
+                                                                                            <p class="">비율</p>
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <p>계약</p>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <p><?= $proceeding->PASS ?>%</p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <p>미계약</p>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <p><?= $unproceeding->FAILED ?>%</p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- col 종료 -->
                                                         <div class="col-lg-6 col-xs-12">
                                                             <div class="x_panel">
                                                                 <div class="x_title">
@@ -682,71 +746,6 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-lg-6 col-xs-12">
-                                                            <div class="x_panel tile">
-                                                                <div class="x_title">
-                                                                    <h2>상담 후 계약률</h2>
-                                                                    <ul class="nav navbar-right panel_toolbox">
-                                                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                                        </li>
-                                                                        <li class="dropdown">
-                                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                                                            <ul class="dropdown-menu" role="menu">
-                                                                                <li><a href="#">Settings 1</a>
-                                                                                </li>
-                                                                                <li><a href="#">Settings 2</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </li>
-                                                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <div class="clearfix"></div>
-                                                                </div>
-                                                                <div class="x_content">
-                                                                    <div class="row">
-                                                                        <div class="col-sm-8 col-xs-12">
-                                                                            <div class="proceeding_wrapper" style="height:300px;">
-                                                                                <canvas id="proceeding"></canvas>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-4 col-xs-12">
-                                                                            <table class="" style="width:100%;  margin-top: 15px;">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th>
-                                                                                            <p class="">계약여부</p>
-                                                                                        </th>
-                                                                                        <th>
-                                                                                            <p class="">비율</p>
-                                                                                        </th>
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <tbody>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <p>계약</p>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <p><?= $proceeding->PASS ?>%</p>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <p>미계약</p>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <p><?= $unproceeding->FAILED ?>%</p>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- col 종료 -->
                                                     </div>
                                                 </div>
                                             </div>

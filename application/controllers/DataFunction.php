@@ -3157,7 +3157,7 @@ class DataFunction extends CI_Controller {
                 $title .= '[미납]';
             }
 
-            if($row['CONTENTS']){
+            if ($row['CONTENTS']) {
                 $color .= ' bd_red';
             }
 
@@ -3409,6 +3409,7 @@ class DataFunction extends CI_Controller {
                                     MG.PAYMENT_IDX,
                                     ME.EVENT_IDX,
                                     MG.PAY_YN,
+                                    MG.TIMESTAMP,
                                     CASE
                                     LICENSE_TYPE 
                                         WHEN '1' THEN '1종' 
@@ -4834,5 +4835,69 @@ class DataFunction extends CI_Controller {
 
         print_r(json_encode($result));
     }
+
+    function salesViewTerm() {
+
+        $date = str_replace(' ', '', explode('-', $this->input->post('date', true)));
+        $date1 = explode('/', $date[0]);
+        $date2 = explode('/', $date[1]);
+
+        $dateWhere1 = $date1[2] . "-" . $date1[0] . "-" . $date1[1];
+        $dateWhere2 = $date2[2] . "-" . $date2[0] . "-" . $date2[1];
+
+
+        $member_goods_sql = "SELECT 
+                                    G.GOODS_NAME,
+                                    P.NAME PAYMENT_NAME,
+                                    E.EVENT_NAME,
+                                    MG.MEMBER_GOODS_IDX,
+                                    MG.TOT_PRICE,
+                                    MG.GOODS_IDX,
+                                    MG.PAYMENT_IDX,
+                                    ME.EVENT_IDX,
+                                    MG.PAY_YN,
+                                    MG.TIMESTAMP,
+                                    M.NAME,
+                                    CASE
+                                    LICENSE_TYPE 
+                                        WHEN '1' THEN '1종' 
+                                        WHEN '2' THEN '2종' 
+                                        WHEN 'B' THEN '대형' 
+                                    END LICENSE_TYPE_TEXT
+                                 FROM
+                                    MEMBER_GOODS MG 
+                                    LEFT JOIN
+                                        MEMBER_EVENT ME
+                                        ON 
+                                        MG.MEMBER_GOODS_IDX = ME.MEMBER_GOODS_IDX 
+                                    LEFT JOIN 
+                                        EVENT E 
+                                        ON 
+                                        ME.EVENT_IDX = E.EVENT_IDX
+                                    , GOODS G, PAYMENT P, MEMBER M
+                                 WHERE 
+                                    MG.GOODS_IDX = G.GOODS_IDX AND 
+                                    MG.MEMBER_IDX = M.MEMBER_IDX AND
+                                    MG.PAYMENT_IDX = P.PAYMENT_IDX AND
+                                    MG.TIMESTAMP BETWEEN '" . $dateWhere1 . "' AND '" . $dateWhere2 . "'";
+        
+        $goods_res = $this->Db_m->getList($member_goods_sql, 'DRIVING_ZONE');
+
+        $result = array();
+
+        foreach ($goods_res as $row) {
+            $result[] = array(
+                'goods_name' => $row['GOODS_NAME'],
+                'payment_name' => $row['PAYMENT_NAME'],
+                'event_name' => $row['EVENT_NAME'],
+                'time_stamp' => $row['TIMESTAMP'],
+                'member_name' => $row['NAME'],
+                'tot_price' => $row['TOT_PRICE']
+            );
+        }
+
+        print_r(json_encode($result));
+    }
+    
 
 }

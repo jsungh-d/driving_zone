@@ -1,4 +1,3 @@
-
 <div class="form-inline mb5 goods_area goods_area_added" style="position: relative;">
     <select class="form-control dp_ib goods_select" name="goods_idx[]" style="width:calc(33% - 17px);" required>
         <option id="goods_default_0" value="">상품 선택</option>
@@ -17,6 +16,9 @@
             <option id="event_<?= $row['EVENT_IDX'] ?>_<?= $row['DISCOUNT_RATE'] ?>" value="<?= $row['EVENT_IDX'] ?>"><?= $row['EVENT_NAME'] ?></option>
         <?php } ?>
     </select>
+    
+    <!--<input type="text" name="" placeholder="날짜지정" class="form-control date" maxlength="20" style="display: inline-block;  width: calc(50% - 28px);  margin-top: 3px;" required>-->
+    
     <button class="btn btn-default minus goods_minus" type="button" style="vertical-align: top;">-</button><br>
     <!-- 미납 여부 체크박스 -->
     <label style="margin:5px 3px;" class="payment_label">
@@ -37,6 +39,7 @@
                 $(this).siblings(".pay_yn_hidden").val("N");
             }
         });
+        
     });
 </script>
 

@@ -108,7 +108,9 @@
                                         <a><i class="fa fa-bar-chart-o"></i> 통계 보기 <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a href="/index/statistics">통계 보기</a></li>
+                                            <!--<li><a href="/index/sales_view">매출 상세 내역</a></li>-->
                                             <li><a href="/index/statistics_branch">지점별 매출 보기(관리자전용)</a></li>
+                                            
                                         </ul>
                                     </li>
                                     <!-- <li><a><i class="fa fa-clone"></i> 방문경로 <span class="fa fa-chevron-down"></span></a> -->

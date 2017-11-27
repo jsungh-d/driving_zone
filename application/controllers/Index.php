@@ -894,6 +894,7 @@ class Index extends CI_Controller {
                                     MG.PAYMENT_IDX,
                                     ME.EVENT_IDX,
                                     MG.PAY_YN,
+                                    MG.TIMESTAMP,
                                     CASE
                                     LICENSE_TYPE 
                                         WHEN '1' THEN '1종' 
@@ -2601,6 +2602,10 @@ class Index extends CI_Controller {
 
 
         $this->load->view('member/member_delete', $data);
+    }
+    
+    function sales_view() {
+        $this->load->view('statistics/sales');
     }
 
 }

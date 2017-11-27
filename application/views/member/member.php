@@ -220,6 +220,9 @@
                                                                             <option id="event_<?= $row['EVENT_IDX'] ?>_<?= $row['DISCOUNT_RATE'] ?>" value="<?= $row['EVENT_IDX'] ?>"><?= $row['EVENT_NAME'] ?></option>
                                                                         <?php } ?>
                                                                     </select>
+                                                                    
+                                                                    <!--<input type="text" name="" placeholder="날짜지정" class="form-control date" maxlength="20" style="display: inline-block;  width: calc(50% - 28px);  margin-top: 3px;" required>-->
+                                                                    
                                                                     <!-- <button class="btn btn-default" type="button" style="    vertical-align: top;">-</button> --><br>
 
                                                                     <!-- 미납 여부 체크박스 -->
@@ -719,8 +722,9 @@
                                                                                     if ($subRow['PAY_YN'] == 'Y') {
                                                                                         $pay_yn = 'checked';
                                                                                     }
-
-                                                                                    echo '<span class="member_list">' . $subRow['GOODS_NAME'] . $subRow['LICENSE_TYPE_TEXT'] . '/' . $subRow['PAYMENT_NAME'] . '/' . $subRow['EVENT_NAME'] . '</span>' . '<label style="margin:5px 3px;" class="payment_label payment_label2">' . '<input type="checkbox" name="" value="Y"' . $pay_yn . '>' . '<span>미납 여부</span>' . '</label>' . '<span>' . '(' . number_format($subRow['TOT_PRICE']) . '원)' . '</span>';
+                                                                                    $time_stamp = substr($subRow['TIMESTAMP'],0,10);
+                                                                                    
+                                                                                    echo '<span class="member_list">' . $subRow['GOODS_NAME'] . $subRow['LICENSE_TYPE_TEXT'] . '/' . $subRow['PAYMENT_NAME'] . '/' . $subRow['EVENT_NAME'] . '/' . $time_stamp . '</span>' . '<label style="margin:5px 3px;" class="payment_label payment_label2">' . '<input type="checkbox" name="" value="Y"' . $pay_yn . '>' . '<span>미납 여부</span>' . '</label>' . '<span>' . '(' . number_format($subRow['TOT_PRICE']) . '원)' . '</span>';
                                                                                     ?>
                                                                                     <button class="btn btn-default minus goods_minus goods_del_btn" type="button" style="vertical-align: top;" value="<?= $subRow['MEMBER_GOODS_IDX'] ?>">-</button>
                                                                                     <br>
@@ -1306,14 +1310,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 <script type="text/javascript">
                 $(document).ready(function () {
-                    $('#addModal').on('show.bs.modal', function (e) {
-                        $(".goods_area_added").remove();
-                        $(".etc_area_added").remove();
-                    });
-                    $('.modifyModal').on('show.bs.modal', function (e) {
-                        $(".goods_area_added").remove();
-                        $(".etc_area_added").remove();
-                    });
+//                    $('#addModal').on('show.bs.modal', function (e) {
+//                        $(".goods_area_added").remove();
+//                        $(".etc_area_added").remove();
+//                    });
+//                    $('.modifyModal').on('show.bs.modal', function (e) {
+//                        $(".goods_area_added").remove();
+//                        $(".etc_area_added").remove();
+//                    });
 
                     $(".etc_pay_yn_chk").change(function () {
                         alert("미납여부가 처리되었습니다.");
@@ -1659,6 +1663,14 @@
 
                         $.post("/index.php/dataFunction/member_shape_add", function (data) {
                             $(".shape_btn").before(data);
+                            
+                            $('.date').datepicker({
+                                format: 'yyyy-mm-dd',
+                                autoclose: true,
+                                language: "kr",
+                                todayHighlight: true
+                            });
+                            
                             // 다중 셀렉
                             $(".multiple_select").select2();
                             $(".minus").unbind("click").bind("click", function () {
